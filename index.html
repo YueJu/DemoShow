@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>垂直导航</title>
+
+<link href="css/jquery-accordion-menu.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-accordion-menu.js" ></script>
+<script type="text/javascript" src="js/jquery-ui-datepicker.js"></script>
+
+<style type="text/css">	
+	h1{
+		margin: 0;
+		color: white;
+	}
+	input{
+		line-height: normal;
+	}
+	.logo{
+		height: 90px;
+		margin-top: 5px;
+	}
+</style>
+<style type="text/css">
+*{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+body{background:#f0f0f0;}
+.content{height: 100px;background: #545F6F}
+.filterinput{
+	background-color:rgba(249, 244, 244, 0);
+	border-radius:15px;
+	width:90%;
+	height:30px;
+	border:thin solid #FFF;
+	text-indent:0.5em;
+	font-weight:bold;
+	color:#FFF;
+	margin-top: 20px;
+}
+.jquery-accordion-head{
+	height: 100px;
+	box-shadow: 0 20px 50px #333;
+}
+#demo-list a{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	white-space:nowrap;
+	width:100%;
+}
+</style>
+<style type="text/css">
+	#box{height:auto;width:75%;margin:0 auto;overflow:hidden;font-size:16px;}
+	.top{height:40px;}
+	.top a{height:16px; width:16px;display:block;float:right;margin:5px;}
+	
+	#box ul li{height:auto;width:264px;border:3px solid #aaa;/*@问题?如何让每个@float:left*/float:left;margin-top:14px;margin-left:20px;} 
+	.a-img{height:264px;width:264px;display:block;overflow:hidden;/*问题overflow：hide，如何隐藏超出部分的图片？overflow:hidden;还有其他什么左右？*/}
+	#box img{
+		width: 258px;height: 264px;
+	}
+	p a,p span{
+		display:block;
+		line-height:23px;
+		padding-left:10px;
+	}
+	.bottom{height:40px;line-height:40px;text-align:center;background-color:#ccc;}
+</style>
+<style type="text/css">
+	a{color:#007bc4/*#424242*/; text-decoration:none;}
+	a:hover{text-decoration:underline}
+	ol,ul{list-style:none}
+	table{border-collapse:collapse;border-spacing:0}
+	body{height:100%; font:12px/18px Tahoma, Helvetica, Arial, Verdana, "\5b8b\4f53", sans-serif; color:#51555C;}
+	img{border:none}
+	.demo{width:555px; margin:0 auto}
+	.demo p{height:32px; line-height:32px; font-size:16px; 
+			display: inline-block; margin:20px 20px;font-weight: bold;}
+	#date_1,#date_2{width:108px; height:20px; line-height:20px; padding:2px; border:1px solid #d3d3d3}
+	#coolbg{
+		display: inline-block;width:108px; height:30px; line-height:20px; padding:2px; border:1px solid #d3d3d3;font-weight: bold;font-size:14px; 
+	}
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#date_1").datepicker();
+    $("#date_2").datepicker();
+});
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function () {
+	jQuery("#jquery-accordion-menu").jqueryAccordionMenu();
+	
+});
+
+$(function(){	
+	//顶部导航切换
+	$("#demo-list li").click(function(){
+		$("#demo-list li.active").removeClass("active")
+		$(this).addClass("active");
+	})	
+})	
+</script>
+</head>
+<body>
+<div class="content">
+	<div id="jquery-accordion-head" class="jquery-accordion-head">
+		<h1>Demo</h1>
+	</div>
+	<div id="jquery-accordion-menu" class="jquery-accordion-menu red">
+		<div class="jquery-accordion-menu-header" id="form"></div>
+		<ul id="demo-list">
+		    <li class="active"><a href="#"><i class="fa fa-home"></i>baidu-ife </a><span class="jquery-accordion-menu-label">10 </span></li>
+			<li><a href="#"><i class="fa fa-glass"></i>Demo2 </a><span class="jquery-accordion-menu-label">10 </span></li>
+			<li><a href="#"><i class="fa fa-file-image-o"></i>Demo3 </a><span class="jquery-accordion-menu-label">12 </span></li>
+			<li><a href="#"><i class="fa fa-user"></i>Demo4 </a><span class="jquery-accordion-menu-label">10 </span></li>
+			<li><a href="#"><i class="fa fa-cog"></i>Demo5 </a><span class="jquery-accordion-menu-label">10 </span></li>
+			<li><a href="#"><i class="fa fa-home"></i>Demo6 </a><span class="jquery-accordion-menu-label">10 </span></li>
+			<li><a href="#"><i class="fa fa-suitcase"></i>Demo7 </a><span class="jquery-accordion-menu-label">10 </span>
+			</li>		   
+		</ul>
+	</div>
+</div>
+<div id="box">
+	<ul>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0001</a>
+			 </p> 
+			 </div>
+		</li>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0002</a>
+			 </p> 
+			 </div>
+		</li>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0003</a>
+			 </p> 
+			 </div>
+		</li>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0004</a>
+			 </p> 
+			 </div>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0005</a>
+			 </p> 
+			 </div>
+		</li>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0006</a>
+			 </p> 
+			 </div>
+		</li>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0007</a>
+			 </p> 
+			 </div>
+		</li>
+		<li>
+			<div class="con">
+			<a href="#" class="a-img ">
+				<img src="images/big.jpg" />
+			</a>
+			<p>
+				<a href="#">task0008</a>
+			 </p> 
+			 </div>
+		</li>
+	</ul>
+</div>
+
+<div id="top" data-toggle="tooltip" data-placement="left" title="" data-original-title="回到顶部">
+  <a href="javascript:;">
+    <div class="arrow"></div>
+    <div class="stick"></div>
+  </a>
+</div>
+
+<footer class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a href="#"><span class="glyphicon glyphicon-envelope"></span> example@126.com</a>
+        <span class="point"> · </span>
+        
+          
+          <a href="https://github.com/yueju" target="_blank">
+            <span class="icon">
+              <svg viewBox="0 0 16 16">
+                <path fill="#aaa" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path>
+              </svg>
+            </span>
+            Github
+          </a>
+          
+          
+          <span class="point"> · </span>
+          <span><a href="http://gaohaoyang.github.io/feed.xml">RSS</a></span>
+          <span class="point"> · </span>
+          <span>© 2016 </span>
+          <span class="point"> · </span>
+          <span>Designed by <a href="https://yueju.github.io" target="_blank">July</a></span>
+
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">
+(function($) {
+$.expr[":"].Contains = function(a, i, m) {
+	return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+};
+function filterList(header, list) {
+	//@header 头部元素
+	//@list 无需列表
+	//创建一个搜素表单
+	var form = $("<form>").attr({
+		"class":"filterform",
+		action:"#"
+	}), input = $("<input>").attr({
+		"class":"filterinput",
+		type:"text"
+	});
+	$(form).append(input).appendTo(header);
+	$(input).change(function() {
+		var filter = $(this).val();
+		if (filter) {
+			$matches = $(list).find("a:Contains(" + filter + ")").parent();
+			$("li", list).not($matches).slideUp();
+			$matches.slideDown();
+		} else {
+			$(list).find("li").slideDown();
+		}
+		return false;
+	}).keyup(function() {
+		$(this).change();
+	});
+}
+$(function() {
+	filterList($("#form"), $("#demo-list"));
+});
+})(jQuery);	
+</script>
+
+</body>
+</html>
