@@ -19,6 +19,7 @@
 	h1{
 		margin: 0;
 		color: white;
+		padding: 20px;
 	}
 	input{
 		line-height: normal;
@@ -29,8 +30,6 @@
 	}
 </style>
 <style type="text/css">
-*{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
-body{background:#f0f0f0;}
 .content{height: 100px;background: #545F6F}
 .filterinput{
 	background-color:rgba(249, 244, 244, 0);
@@ -56,11 +55,11 @@ body{background:#f0f0f0;}
 }
 </style>
 <style type="text/css">
-	#box{height:auto;width:75%;margin:0 auto;overflow:hidden;font-size:16px;}
+	#box{height:auto;width:85%;margin:0 auto;overflow:hidden;font-size:16px;}
 	.top{height:40px;}
 	.top a{height:16px; width:16px;display:block;float:right;margin:5px;}
 	
-	#box ul li{height:auto;width:264px;border:3px solid #aaa;/*@问题?如何让每个@float:left*/float:left;margin-top:14px;margin-left:20px;} 
+	#box ul li{height:auto;width:264px;border:3px solid #aaa;/*@问题?如何让每个@float:left*/float:left;margin-top:34px;margin-left:50px;} 
 	.a-img{height:264px;width:264px;display:block;overflow:hidden;/*问题overflow：hide，如何隐藏超出部分的图片？overflow:hidden;还有其他什么左右？*/}
 	#box img{
 		width: 258px;height: 264px;
@@ -72,62 +71,13 @@ body{background:#f0f0f0;}
 	}
 	.bottom{height:40px;line-height:40px;text-align:center;background-color:#ccc;}
 </style>
-<style type="text/css">
-	a{color:#007bc4/*#424242*/; text-decoration:none;}
-	a:hover{text-decoration:underline}
-	ol,ul{list-style:none}
-	table{border-collapse:collapse;border-spacing:0}
-	body{height:100%; font:12px/18px Tahoma, Helvetica, Arial, Verdana, "\5b8b\4f53", sans-serif; color:#51555C;}
-	img{border:none}
-	.demo{width:555px; margin:0 auto}
-	.demo p{height:32px; line-height:32px; font-size:16px; 
-			display: inline-block; margin:20px 20px;font-weight: bold;}
-	#date_1,#date_2{width:108px; height:20px; line-height:20px; padding:2px; border:1px solid #d3d3d3}
-	#coolbg{
-		display: inline-block;width:108px; height:30px; line-height:20px; padding:2px; border:1px solid #d3d3d3;font-weight: bold;font-size:14px; 
-	}
-</style>
-<script type="text/javascript">
-$(function(){
-	$("#date_1").datepicker();
-    $("#date_2").datepicker();
-});
-</script>
 
-<script type="text/javascript">
-jQuery(document).ready(function () {
-	jQuery("#jquery-accordion-menu").jqueryAccordionMenu();
-	
-});
-
-$(function(){	
-	//顶部导航切换
-	$("#demo-list li").click(function(){
-		$("#demo-list li.active").removeClass("active")
-		$(this).addClass("active");
-	})	
-})	
-</script>
 </head>
 <body>
 <div class="content">
 	<div id="jquery-accordion-head" class="jquery-accordion-head">
 		<h1>Demo</h1>
 	</div>
-	<div id="jquery-accordion-menu" class="jquery-accordion-menu red">
-		<div class="jquery-accordion-menu-header" id="form"></div>
-		<ul id="demo-list">
-		    <li class="active"><a href="#"><i class="fa fa-home"></i>baidu-ife </a><span class="jquery-accordion-menu-label">10 </span></li>
-			<li><a href="#"><i class="fa fa-glass"></i>Demo2 </a><span class="jquery-accordion-menu-label">10 </span></li>
-			<li><a href="#"><i class="fa fa-file-image-o"></i>Demo3 </a><span class="jquery-accordion-menu-label">12 </span></li>
-			<li><a href="#"><i class="fa fa-user"></i>Demo4 </a><span class="jquery-accordion-menu-label">10 </span></li>
-			<li><a href="#"><i class="fa fa-cog"></i>Demo5 </a><span class="jquery-accordion-menu-label">10 </span></li>
-			<li><a href="#"><i class="fa fa-home"></i>Demo6 </a><span class="jquery-accordion-menu-label">10 </span></li>
-			<li><a href="#"><i class="fa fa-suitcase"></i>Demo7 </a><span class="jquery-accordion-menu-label">10 </span>
-			</li>		   
-		</ul>
-	</div>
-</div>
 <div id="box">
 	<ul>
 		<li>
