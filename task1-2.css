@@ -1,0 +1,137 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #d8d6d6;
+}
+header{
+	background: #333232;
+}
+header img{
+	margin-left: 20px;
+}
+header nav ul{
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	display: inline-block;
+}
+header nav ul li{
+	float: left;
+	margin: 20px 20px;
+}
+header nav ul li a{
+	color: white;
+	text-decoration: none;
+	font-size: 12px;
+}
+.doc1, .doc2, .doc3, .sidebar, .pic{
+	line-height: 25px;
+	margin: 20px 20px;
+	padding: 30px 20px;
+	background: white;
+}
+h2{
+	margin: 20px 0px;
+}
+h3{
+	color: #888;
+	margin: 10px 0px;
+}
+.doc1 label,.doc2 label,.doc3 label{
+	color: #888;
+	font-size: 12px;
+	display: inline-block;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+.doc1 p,.doc2 p{
+	text-indent: 2em;
+	font-weight: bold;
+}
+.doc2 li{
+	list-style: none;
+	margin-left: 2em;
+}
+.pic div{
+	width: 120px;
+	height: 140px;
+	margin-left: 50px;
+	margin-bottom: 20px;
+	text-align: center;
+	border: 1px solid #888;
+}
+.pic div p {
+	font-size: 12px;
+}
+.pic div img{
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+}
+.doc3 ol{
+	margin-left: 3em;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.doc3 table{
+	width: 100%;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	text-align: left;
+}
+.doc3 thead{
+	color: white;
+	background: black;
+}
+.doc3 tfoot{
+	background: #ccc;
+	font-weight: bold;
+}
+.doc3 th,td{
+	padding-left: 5px;
+	font-size: 14px;
+}
+.sidebar h2{
+	border-left: 3px solid #ccc;
+	padding-left: 10px;
+}
+.sidebar .form{
+	margin: 0 auto;
+	width: 600px;
+}
+.sidebar form label{
+	display: inline-block;
+	width: 160px;
+	text-align: right;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+.sidebar form p{
+	font-size: 12px;
+	color: #888;
+	margin-left: 190px;
+	margin-bottom: 10px;
+}
+.sidebar form .submit{
+	width: 100%;
+	height: 50px;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	background: rgba(34, 79, 185, 0.94);
+}
+footer{
+	width: 100%;
+	height: 80px;
+	background: black;
+	color: white;
+}
+footer p{
+	/*width: 100px;
+	margin: 0 auto;
+	padding-top: 25px;*/
+	text-align: center;
+	line-height: 80px;
+}
