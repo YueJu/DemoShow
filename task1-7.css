@@ -11,16 +11,16 @@
 	background: #fff;
 }
 header{
-	height: 35px;
-	margin-top: 20px;
+	height: 60px;
 }
 header .left{
 	float: left;
 	margin-left: 50px;
+	line-height: 60px;
 }
 header .left img{
 	float: left;
-	margin-top: -5px;
+	margin-top: 15px;
 }
 header .left p{
 	display: inline-block;
@@ -31,30 +31,58 @@ header .left p{
 	letter-spacing: 0.1em;
 }
 header .right{
-	float: right;
+	position: relative;
 	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 60px;
+	height: 60px;
+	left: 35%;
+}
+header .right ul{
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 60px;
+	height: 60px;
 }
 header .right li{
-	float: left;
 	font-size: 14px;
-	line-height: 23px;
+	line-height: 60px;
 	color: #7C7A82;
 	font-weight: bold;
 	opacity: 0.7;
 	cursor: pointer;
+	box-sizing:border-box;
 	display: inline-block;
-	margin: 0px 25px;
+	padding-left: 25px;
+	margin-right: 25px;
 }
 header .right li:hover{
 	color: #E74F4D;
 }
 header .right .move{
 	position: absolute;
-	top: 52px;
-	left: 800px;
+	top: 58px;
+	left: 0px;
 	width: 80px;
-	height: 4px;
-	background: #E74F4D;
+	border-top: 4px solid #E74F4D;
+	-webkit-transition:left 0.4s ease-in-out;
+}
+header .right li:nth-child(1):hover~.move{
+    left: 0;
+}
+header .right li:nth-child(2):hover~.move{
+    left: 15%;
+}
+header .right li:nth-child(3):hover~.move{
+    left: 33%;
+}
+header .right li:nth-child(4):hover~.move{
+    left: 52%;
+}
+header .right li:nth-child(5):hover~.move{
+    left: 70%;
 }
 header .right .login{
 	font-size: 15px;
@@ -296,12 +324,23 @@ header .right .login img{
 	background-repeat: no-repeat;
 }
 .content6 .cover{
+	position: relative;
 	float: left;
 	width: 850px;
 	color: #fff;
 	text-align: center;
 	padding-top: 135px;	
 	font-family: "黑体";
+}
+.content6 .cover::after{
+	content: '';
+    position: absolute;
+    border-width: 30px;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+    top: 250px;
+    left: 100%;
+    margin-left: -60px;
 }
 .content6 .cover .new{
 	font-size: 62px;
