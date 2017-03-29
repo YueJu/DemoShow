@@ -1,3 +1,4 @@
+require('./jquery-1.9.1.min.js');
 (function () {
     var isTouchSupported = !! ('ontouchstart' in window),
         touchStart = isTouchSupported ? "touchstart" : "mousedown",
@@ -43,6 +44,7 @@
                         }
                         else if(thisInput[1].checked == true){
                            $("#txt").html("请输入手势密码");
+                           obj.reset();
                         }
                     }
                 }
@@ -190,6 +192,7 @@
                     a=[];
                     //document.getElementById("txt").innerHTML="密码太短，至少需要5个点";
                     $("#txt").html("密码太短，至少需要5个点");
+                    obj.reset();
                     return;
                 }
                 else if(a.length >= 5){
@@ -200,6 +203,7 @@
                                     a=[];
                                     b=[];
                                     document.getElementById("txt").innerHTML="两次输入的不一致";
+                                    obj.reset();
                                     iObj.sign=0;
                                     return;
                                 }
@@ -217,6 +221,7 @@
                             b=[];
                             iObj.sign=0;
                             document.getElementById("txt").innerHTML="两次输入的不一致";
+                            obj.reset();
                         }
                     }
                     else{
@@ -229,6 +234,7 @@
             else if(thisInput[1].checked == true){
                if(a.length < 5){
                     $("#txt").html("输入的密码不正确");
+                    obj.reset();
                     iObj.sign=0;
                     a=[];
                 }
@@ -241,6 +247,7 @@
                                 a=[];
                                 b=[];
                                 document.getElementById("txt").innerHTML="输入的密码不正确";
+                                obj.reset();
                                 iObj.sign=0;
                                 return;
                             }
@@ -258,6 +265,7 @@
                         b=[];
                         iObj.sign=0;
                         document.getElementById("txt").innerHTML="输入的密码不正确";
+                        obj.reset();
                     }
                 }
             }
