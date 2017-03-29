@@ -7,9 +7,8 @@
 <body>
 
   <h3>污染城市列表</h3>
-  <ul id="aqi-list">
-<!--   
-    <li>第一名：福州（样例），10</li>
+  <ul id="aqi-list"> 
+ <!--    <li>第一名：福州（样例），10</li>
     <li>第二名：福州（样例），10</li> -->
   </ul>
 
@@ -25,13 +24,24 @@ var aqiData = [
 ];
 
 (function () {
-
+  var aqilist=document.getElementById("aqi-list");
+  var j=0;
   /*
   在注释下方编写代码
   遍历读取aqiData中各个城市的数据
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
-
+  aqiData.sort(function(a,b){
+    return b[1]-a[1];
+  });
+  for(var i=0;i<aqiData.length;i++){
+    alert(aqiData[i][1]);
+    /*if(aqiData[i][1]>60){
+      aqilist[j][0] = aqiData[i][0];
+      aqilist[j][1] = aqiData[i][1];
+      j++;
+    }*/
+  }
 })();
 
 </script>
