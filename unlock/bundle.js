@@ -148,8 +148,8 @@ __webpack_require__(0);
             'height': (matrix[0] * (radius * 2 + margin * 2) + margin * 2) + 'px'
         });
         html.push('<div id="txt" style="text-align:center;margin-top:270px;margin-bottom:30px;"></div>');
-        html.push('<div class="password"><input name="pass" type="radio">设置密码</div>');
-        html.push('<div class="confirm"><input name="pass" type="radio">验证密码</div>');
+        html.push('<div class="password"><label for="set"><input id="set" name="pass" type="radio">设置密码</label></div>');
+        html.push('<div class="confirm"><label for="confirm"><input id="confirm" name="pass" type="radio">验证密码</label></div>');
         holder.html(html.join(''));
 
         thisInput = document.getElementsByTagName('input');
@@ -200,6 +200,7 @@ __webpack_require__(0);
         //assign events
         if(thisInput[0].checked == true || thisInput[1].checked == true){
            $("#txt").html("请输入手势密码");
+           obj.reset();
            $(this).on(touchMove + '.pattern-move', function (e) {
                 moveHandler.call(this, e, obj);
             });
@@ -346,6 +347,7 @@ __webpack_require__(0);
                         iObj.sign=1;
                         console.log("hhhhhhhh"+iObj.sign);
                         document.getElementById("txt").innerHTML="请再次输入手势密码";
+                        obj.reset();
                     }
                 }
             }
