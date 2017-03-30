@@ -7,13 +7,11 @@ require('./jquery-1.9.1.min.js');
         nullFunc = function () {},
         objectHolder = {};
         console.log(isTouchSupported);//pc端为false
-        console.log(touchStart, touchEnd);
     var a=[];
     var b=[];
     var thisInput;
     //internal functions 创建一个X x Y 的解锁区域
     function readyDom(iObj) {
-        //console.log(iObj);
         var holder = iObj.holder,//主容器div
             option = iObj.option,
             matrix = option.matrix,
@@ -30,28 +28,28 @@ require('./jquery-1.9.1.min.js');
             'height': (matrix[0] * (radius * 2 + margin * 2) + margin * 2) + 'px'
         });
         html.push('<div id="txt"></div>');
-        html.push('<div class="choose" id="password"><label><input id="password" name="pass" type="radio" />设置密码</label></div>');
-        html.push('<div class="choose" id="confirm"><label><input id="confirm" name="pass" type="radio" />验证密码</label></div>');
         holder.html(html.join(''));
 
         var choose = document.querySelectorAll('.choose');
-        console.log(choose);
         thisInput = document.getElementsByTagName('input');
+
         for(var i=0,len = choose.length;i<len;i++){
             choose[i].onclick = function(){
-                if(i == 1){
-                    document.getElementById('password').click();
-                }else{
-                    document.getElementById('confirm').click();
+                if(this.id == 'password'){
+                    document.querySelector('#_password').checked = 'checked';
+                }else if(this.id == 'confirm'){
+                    document.querySelector('#_confirm').checked = 'checked';
                 }
                 $("#txt").html("请输入手势密码");
+                var this_line = document.querySelectorAll('.patt-lines');
+                var this_cir = document.querySelectorAll('.patt-circ');
+                for(var i=0,len=this_line.length;i<len;i++){
+                    this_line[i].remove();
+                }
+
+                $('.patt-circ').removeClass('hovered');
             }
         }
-        /*for(var i=0,len = thisInput.length;i<len;i++){
-            if(thisInput[0].checked == true || thisInput[1].checked == true){
-               $("#txt").html("请输入手势密码");
-            }
-        }*/
         
         
 
@@ -138,14 +136,11 @@ require('./jquery-1.9.1.min.js');
                         newX = (posObj.i - 1) * (2 * margin + 2 * radius) + 2 * margin + radius;
                     newY = (posObj.j - 1) * (2 * margin + 2 * radius) + 2 * margin + radius;
 
-                    console.log(iObj.sign);
                     if(iObj.sign == 1){
                         b.push({x:newX,y:newY});
-                        console.log(b);
                     }
                     else{
                         a.push({x:newX,y:newY});
-                        console.log(a);
                     }
 
                     if (patternAry.length != 1) {
@@ -187,14 +182,10 @@ require('./jquery-1.9.1.min.js');
             //to remove last line
             iObj.line.remove();
 
-            console.log(a.length);
-
             if(thisInput[0].checked == true){
                if(a.length < 5){
                     iObj.sign=0;
-                    console.log("hhhhhhhh"+iObj.sign);
                     a=[];
-                    //document.getElementById("txt").innerHTML="密码太短，至少需要5个点";
                     $("#txt").html("密码太短，至少需要5个点");
                     obj.reset();
                     return;
@@ -212,10 +203,9 @@ require('./jquery-1.9.1.min.js');
                                     return;
                                 }
                             };
-                            document.getElementById("txt").innerHTML="密码设置成功";
+                            $("#txt").html("密码设置成功");
 
                             localStorage[name]= JSON.stringify(a);
-                            console.log(localStorage[name]);
                             a=[];
                             b=[];
                             iObj.sign=0;
@@ -224,14 +214,13 @@ require('./jquery-1.9.1.min.js');
                             a=[];
                             b=[];
                             iObj.sign=0;
-                            document.getElementById("txt").innerHTML="两次输入的不一致";
+                            $("#txt").html("两次输入的不一致");
                             obj.reset();
                         }
                     }
                     else{
                         iObj.sign=1;
-                        console.log("hhhhhhhh"+iObj.sign);
-                        document.getElementById("txt").innerHTML="请再次输入手势密码";
+                        $("#txt").html("请再次输入手势密码");
                         obj.reset();
                     }
                 }
@@ -245,22 +234,20 @@ require('./jquery-1.9.1.min.js');
                 }
                 else if(a.length >= 5){
                     var local = JSON.parse(localStorage[name]);
-                    console.log(local);
                     if(a.length == local.length){
                         for (var i = 0; i < a.length; i++) {
                             if(a[i].x != local[i].x || a[i].y != local[i].y){
                                 a=[];
                                 b=[];
-                                document.getElementById("txt").innerHTML="输入的密码不正确";
+                                $("#txt").html("输入的密码不正确");
                                 obj.reset();
                                 iObj.sign=0;
                                 return;
                             }
                         };
-                        document.getElementById("txt").innerHTML="密码正确！";
+                        $("#txt").html("密码正确！");
 
                         localStorage[name]= JSON.stringify(a);
-                        console.log(localStorage[name]);
                         a=[];
                         b=[];
                         iObj.sign=0;
@@ -269,7 +256,7 @@ require('./jquery-1.9.1.min.js');
                         a=[];
                         b=[];
                         iObj.sign=0;
-                        document.getElementById("txt").innerHTML="输入的密码不正确";
+                        $("#txt").html("输入的密码不正确");
                         obj.reset();
                     }
                 }

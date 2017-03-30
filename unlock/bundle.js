@@ -125,13 +125,11 @@ __webpack_require__(0);
         nullFunc = function () {},
         objectHolder = {};
         console.log(isTouchSupported);//pc端为false
-        console.log(touchStart, touchEnd);
     var a=[];
     var b=[];
     var thisInput;
     //internal functions 创建一个X x Y 的解锁区域
     function readyDom(iObj) {
-        //console.log(iObj);
         var holder = iObj.holder,//主容器div
             option = iObj.option,
             matrix = option.matrix,
@@ -148,28 +146,28 @@ __webpack_require__(0);
             'height': (matrix[0] * (radius * 2 + margin * 2) + margin * 2) + 'px'
         });
         html.push('<div id="txt"></div>');
-        html.push('<div class="choose" id="password"><label><input id="password" name="pass" type="radio" />设置密码</label></div>');
-        html.push('<div class="choose" id="confirm"><label><input id="confirm" name="pass" type="radio" />验证密码</label></div>');
         holder.html(html.join(''));
 
         var choose = document.querySelectorAll('.choose');
-        console.log(choose);
         thisInput = document.getElementsByTagName('input');
+
         for(var i=0,len = choose.length;i<len;i++){
             choose[i].onclick = function(){
-                if(i == 1){
-                    document.getElementById('password').click();
-                }else{
-                    document.getElementById('confirm').click();
+                if(this.id == 'password'){
+                    document.querySelector('#_password').checked = 'checked';
+                }else if(this.id == 'confirm'){
+                    document.querySelector('#_confirm').checked = 'checked';
                 }
                 $("#txt").html("请输入手势密码");
+                var this_line = document.querySelectorAll('.patt-lines');
+                var this_cir = document.querySelectorAll('.patt-circ');
+                for(var i=0,len=this_line.length;i<len;i++){
+                    this_line[i].remove();
+                }
+
+                $('.patt-circ').removeClass('hovered');
             }
         }
-        /*for(var i=0,len = thisInput.length;i<len;i++){
-            if(thisInput[0].checked == true || thisInput[1].checked == true){
-               $("#txt").html("请输入手势密码");
-            }
-        }*/
         
         
 
@@ -256,14 +254,11 @@ __webpack_require__(0);
                         newX = (posObj.i - 1) * (2 * margin + 2 * radius) + 2 * margin + radius;
                     newY = (posObj.j - 1) * (2 * margin + 2 * radius) + 2 * margin + radius;
 
-                    console.log(iObj.sign);
                     if(iObj.sign == 1){
                         b.push({x:newX,y:newY});
-                        console.log(b);
                     }
                     else{
                         a.push({x:newX,y:newY});
-                        console.log(a);
                     }
 
                     if (patternAry.length != 1) {
@@ -305,14 +300,10 @@ __webpack_require__(0);
             //to remove last line
             iObj.line.remove();
 
-            console.log(a.length);
-
             if(thisInput[0].checked == true){
                if(a.length < 5){
                     iObj.sign=0;
-                    console.log("hhhhhhhh"+iObj.sign);
                     a=[];
-                    //document.getElementById("txt").innerHTML="密码太短，至少需要5个点";
                     $("#txt").html("密码太短，至少需要5个点");
                     obj.reset();
                     return;
@@ -330,10 +321,9 @@ __webpack_require__(0);
                                     return;
                                 }
                             };
-                            document.getElementById("txt").innerHTML="密码设置成功";
+                            $("#txt").html("密码设置成功");
 
                             localStorage[name]= JSON.stringify(a);
-                            console.log(localStorage[name]);
                             a=[];
                             b=[];
                             iObj.sign=0;
@@ -342,14 +332,13 @@ __webpack_require__(0);
                             a=[];
                             b=[];
                             iObj.sign=0;
-                            document.getElementById("txt").innerHTML="两次输入的不一致";
+                            $("#txt").html("两次输入的不一致");
                             obj.reset();
                         }
                     }
                     else{
                         iObj.sign=1;
-                        console.log("hhhhhhhh"+iObj.sign);
-                        document.getElementById("txt").innerHTML="请再次输入手势密码";
+                        $("#txt").html("请再次输入手势密码");
                         obj.reset();
                     }
                 }
@@ -363,22 +352,20 @@ __webpack_require__(0);
                 }
                 else if(a.length >= 5){
                     var local = JSON.parse(localStorage[name]);
-                    console.log(local);
                     if(a.length == local.length){
                         for (var i = 0; i < a.length; i++) {
                             if(a[i].x != local[i].x || a[i].y != local[i].y){
                                 a=[];
                                 b=[];
-                                document.getElementById("txt").innerHTML="输入的密码不正确";
+                                $("#txt").html("输入的密码不正确");
                                 obj.reset();
                                 iObj.sign=0;
                                 return;
                             }
                         };
-                        document.getElementById("txt").innerHTML="密码正确！";
+                        $("#txt").html("密码正确！");
 
                         localStorage[name]= JSON.stringify(a);
-                        console.log(localStorage[name]);
                         a=[];
                         b=[];
                         iObj.sign=0;
@@ -387,7 +374,7 @@ __webpack_require__(0);
                         a=[];
                         b=[];
                         iObj.sign=0;
-                        document.getElementById("txt").innerHTML="输入的密码不正确";
+                        $("#txt").html("输入的密码不正确");
                         obj.reset();
                     }
                 }
@@ -2473,7 +2460,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, ".outer {\r\n\twidth:310px;\r\n\theight:310px;\r\n\tmargin:0 auto;\r\n}\r\n.patt-holder {\r\n\tbackground:#FFF;\r\n}\r\n.patt-wrap {\r\n\tposition:relative;\r\n\tcursor:pointer;\r\n}\r\n.patt-wrap ul, .patt-wrap li {\r\n\tlist-style: none;\r\n\tmargin:0;\r\n\tpadding: 0;\r\n}\r\n.patt-circ {\r\n\tborder:3px solid #CCC;\r\n\tbackground: #FFFFFF;\r\n\tposition:relative;\r\n\tfloat: left;\r\n\tbox-sizing: border-box;\r\n\t-moz-box-sizing: border-box;\r\n}\r\n.patt-circ.hovered {\r\n\t/*border:3px solid #009900;*/\r\n\tborder:1px solid #9a5c01;\r\n\tbackground: #FF9800;\r\n}\r\n.patt-error .patt-circ.hovered {\r\n\tborder:3px solid #BA1B26;\r\n}\r\n.patt-hidden .patt-circ.hovered {\r\n\tborder:0;\r\n}\r\n.patt-dots {\r\n\twidth: 5px;\r\n\theight: 5px;\r\n\tborder-radius:5px;\r\n\tposition:absolute;\r\n\ttop:50%;\r\n\tleft:50%;\r\n\tmargin-top:-2.5px;\r\n\tmargin-left:-2.5px;\r\n}\r\n.patt-lines {\r\n\tborder-radius:5px;\r\n\theight:5px;\r\n\tbackground:red;\r\n\r\n\tposition:absolute;\r\n\ttransform-origin:2.5px 2.5px;\r\n\t-ms-transform-origin:2.5px 2.5px; /* IE 9 */\r\n\t-webkit-transform-origin:2.5px 2.5px;\r\n}\r\n.patt-hidden .patt-lines {\r\n\tdisplay:none;\r\n}\r\n\r\n#txt{\r\n\ttext-align:center;\r\n\tmargin-top:270px;\r\n\tmargin-bottom:30px;\r\n}\r\n\r\n#password{\r\n\tmargin: 15px; \r\n}\r\n\r\n#confirm{\r\n\tmargin: 15px; \r\n}", ""]);
+exports.push([module.i, ".outer {\r\n\twidth:310px;\r\n\theight:310px;\r\n\tmargin:0 auto;\r\n}\r\n.patt-holder {\r\n\tbackground:#FFF;\r\n}\r\n.patt-wrap {\r\n\tposition:relative;\r\n\tcursor:pointer;\r\n}\r\n.patt-wrap ul, .patt-wrap li {\r\n\tlist-style: none;\r\n\tmargin:0;\r\n\tpadding: 0;\r\n}\r\n.patt-circ {\r\n\tborder:3px solid #CCC;\r\n\tbackground: #FFFFFF;\r\n\tposition:relative;\r\n\tfloat: left;\r\n\tbox-sizing: border-box;\r\n\t-moz-box-sizing: border-box;\r\n}\r\n.patt-circ.hovered {\r\n\t/*border:3px solid #009900;*/\r\n\tborder:1px solid #9a5c01;\r\n\tbackground: #FF9800;\r\n}\r\n.patt-error .patt-circ.hovered {\r\n\tborder:3px solid #BA1B26;\r\n}\r\n.patt-hidden .patt-circ.hovered {\r\n\tborder:0;\r\n}\r\n.patt-dots {\r\n\twidth: 5px;\r\n\theight: 5px;\r\n\tborder-radius:5px;\r\n\tposition:absolute;\r\n\ttop:50%;\r\n\tleft:50%;\r\n\tmargin-top:-2.5px;\r\n\tmargin-left:-2.5px;\r\n}\r\n.patt-lines {\r\n\tborder-radius:5px;\r\n\theight:5px;\r\n\tbackground:red;\r\n\r\n\tposition:absolute;\r\n\ttransform-origin:2.5px 2.5px;\r\n\t-ms-transform-origin:2.5px 2.5px; /* IE 9 */\r\n\t-webkit-transform-origin:2.5px 2.5px;\r\n}\r\n.patt-hidden .patt-lines {\r\n\tdisplay:none;\r\n}\r\n\r\n#txt{\r\n\ttext-align:center;\r\n\tmargin-top:270px;\r\n\tmargin-bottom:30px;\r\n}\r\n\r\n#password{\r\n\tmargin: 15px; \r\n\tmargin-top: 25px;\r\n}\r\n\r\n#confirm{\r\n\tmargin: 15px; \r\n}", ""]);
 
 // exports
 
