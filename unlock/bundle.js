@@ -162,7 +162,6 @@ __webpack_require__(0);
                         }
                         else if(thisInput[1].checked == true){
                            $("#txt").html("请输入手势密码");
-                           obj.reset();
                         }
                     }
                 }
@@ -321,7 +320,7 @@ __webpack_require__(0);
                                 if(a[i].x != b[i].x || a[i].y != b[i].y){
                                     a=[];
                                     b=[];
-                                    document.getElementById("txt").innerHTML="两次输入的不一致";
+                                    $("#txt").html("两次输入的不一致");
                                     obj.reset();
                                     iObj.sign=0;
                                     return;
