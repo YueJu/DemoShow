@@ -30,7 +30,7 @@ require('./jquery-1.9.1.min.js');
             'height': (matrix[0] * (radius * 2 + margin * 2) + margin * 2) + 'px'
         });
         html.push('<div id="txt" style="text-align:center;margin-top:270px;margin-bottom:30px;"></div>');
-        html.push('<div class="password"><label for="set"><input id="set" name="pass" type="radio">设置密码</label></div>');
+        html.push('<div class="set"><label for="set"><input id="set" name="pass" type="radio">设置密码</label></div>');
         html.push('<div class="confirm"><label for="confirm"><input id="confirm" name="pass" type="radio">验证密码</label></div>');
         holder.html(html.join(''));
 
