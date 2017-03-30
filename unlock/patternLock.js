@@ -29,25 +29,29 @@ require('./jquery-1.9.1.min.js');
             'width': (matrix[1] * (radius * 2 + margin * 2) + margin * 2) + 'px',
             'height': (matrix[0] * (radius * 2 + margin * 2) + margin * 2) + 'px'
         });
-        html.push('<div id="txt" style="text-align:center;margin-top:270px;margin-bottom:30px;"></div>');
-        html.push('<div class="password"><label for="password"><input id="password" name="pass" type="radio">设置密码</label></div>');
-        html.push('<div class="confirm"><label for="confirm"><input id="confirm" name="pass" type="radio">验证密码</label></div>');
+        html.push('<div id="txt"></div>');
+        html.push('<div class="choose" id="password"><label><input id="password" name="pass" type="radio" />设置密码</label></div>');
+        html.push('<div class="choose" id="confirm"><label><input id="confirm" name="pass" type="radio" />验证密码</label></div>');
         holder.html(html.join(''));
 
+        var choose = document.querySelectorAll('.choose');
+        console.log(choose);
         thisInput = document.getElementsByTagName('input');
-        for(var i=0,len = thisInput.length;i<len;i++){
-                thisInput[i].onclick = function(){
-                    for(var i=0,len = thisInput.length;i<len;i++){
-                        if(thisInput[0].checked == true){
-                           $("#txt").html("请输入手势密码");
-
-                        }
-                        else if(thisInput[1].checked == true){
-                           $("#txt").html("请输入手势密码");
-                        }
-                    }
+        for(var i=0,len = choose.length;i<len;i++){
+            choose[i].onclick = function(){
+                if(i == 1){
+                    document.getElementById('password').click();
+                }else{
+                    document.getElementById('confirm').click();
                 }
+                $("#txt").html("请输入手势密码");
             }
+        }
+        /*for(var i=0,len = thisInput.length;i<len;i++){
+            if(thisInput[0].checked == true || thisInput[1].checked == true){
+               $("#txt").html("请输入手势密码");
+            }
+        }*/
         
         
 

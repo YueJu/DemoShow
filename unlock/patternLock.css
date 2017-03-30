@@ -57,9 +57,17 @@
 .patt-hidden .patt-lines {
 	display:none;
 }
-.password{
-	margin: 20px; 
+
+#txt{
+	text-align:center;
+	margin-top:270px;
+	margin-bottom:30px;
 }
-.confirm{
-	margin: 20px; 
+
+#password{
+	margin: 15px; 
+}
+
+#confirm{
+	margin: 15px; 
 }

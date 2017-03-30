@@ -147,25 +147,29 @@ __webpack_require__(0);
             'width': (matrix[1] * (radius * 2 + margin * 2) + margin * 2) + 'px',
             'height': (matrix[0] * (radius * 2 + margin * 2) + margin * 2) + 'px'
         });
-        html.push('<div id="txt" style="text-align:center;margin-top:270px;margin-bottom:30px;"></div>');
-        html.push('<div class="password"><label for="password"><input id="password" name="pass" type="radio">设置密码</label></div>');
-        html.push('<div class="confirm"><label for="confirm"><input id="confirm" name="pass" type="radio">验证密码</label></div>');
+        html.push('<div id="txt"></div>');
+        html.push('<div class="choose" id="password"><label><input id="password" name="pass" type="radio" />设置密码</label></div>');
+        html.push('<div class="choose" id="confirm"><label><input id="confirm" name="pass" type="radio" />验证密码</label></div>');
         holder.html(html.join(''));
 
+        var choose = document.querySelectorAll('.choose');
+        console.log(choose);
         thisInput = document.getElementsByTagName('input');
-        for(var i=0,len = thisInput.length;i<len;i++){
-                thisInput[i].onclick = function(){
-                    for(var i=0,len = thisInput.length;i<len;i++){
-                        if(thisInput[0].checked == true){
-                           $("#txt").html("请输入手势密码");
-
-                        }
-                        else if(thisInput[1].checked == true){
-                           $("#txt").html("请输入手势密码");
-                        }
-                    }
+        for(var i=0,len = choose.length;i<len;i++){
+            choose[i].onclick = function(){
+                if(i == 1){
+                    document.getElementById('password').click();
+                }else{
+                    document.getElementById('confirm').click();
                 }
+                $("#txt").html("请输入手势密码");
             }
+        }
+        /*for(var i=0,len = thisInput.length;i<len;i++){
+            if(thisInput[0].checked == true || thisInput[1].checked == true){
+               $("#txt").html("请输入手势密码");
+            }
+        }*/
         
         
 
@@ -2469,7 +2473,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, ".outer {\r\n\twidth:310px;\r\n\theight:310px;\r\n\tmargin:0 auto;\r\n}\r\n.patt-holder {\r\n\tbackground:#FFF;\r\n}\r\n.patt-wrap {\r\n\tposition:relative;\r\n\tcursor:pointer;\r\n}\r\n.patt-wrap ul, .patt-wrap li {\r\n\tlist-style: none;\r\n\tmargin:0;\r\n\tpadding: 0;\r\n}\r\n.patt-circ {\r\n\tborder:3px solid #CCC;\r\n\tbackground: #FFFFFF;\r\n\tposition:relative;\r\n\tfloat: left;\r\n\tbox-sizing: border-box;\r\n\t-moz-box-sizing: border-box;\r\n}\r\n.patt-circ.hovered {\r\n\t/*border:3px solid #009900;*/\r\n\tborder:1px solid #9a5c01;\r\n\tbackground: #FF9800;\r\n}\r\n.patt-error .patt-circ.hovered {\r\n\tborder:3px solid #BA1B26;\r\n}\r\n.patt-hidden .patt-circ.hovered {\r\n\tborder:0;\r\n}\r\n.patt-dots {\r\n\twidth: 5px;\r\n\theight: 5px;\r\n\tborder-radius:5px;\r\n\tposition:absolute;\r\n\ttop:50%;\r\n\tleft:50%;\r\n\tmargin-top:-2.5px;\r\n\tmargin-left:-2.5px;\r\n}\r\n.patt-lines {\r\n\tborder-radius:5px;\r\n\theight:5px;\r\n\tbackground:red;\r\n\r\n\tposition:absolute;\r\n\ttransform-origin:2.5px 2.5px;\r\n\t-ms-transform-origin:2.5px 2.5px; /* IE 9 */\r\n\t-webkit-transform-origin:2.5px 2.5px;\r\n}\r\n.patt-hidden .patt-lines {\r\n\tdisplay:none;\r\n}\r\n.password{\r\n\tmargin: 20px; \r\n}\r\n.confirm{\r\n\tmargin: 20px; \r\n}", ""]);
+exports.push([module.i, ".outer {\r\n\twidth:310px;\r\n\theight:310px;\r\n\tmargin:0 auto;\r\n}\r\n.patt-holder {\r\n\tbackground:#FFF;\r\n}\r\n.patt-wrap {\r\n\tposition:relative;\r\n\tcursor:pointer;\r\n}\r\n.patt-wrap ul, .patt-wrap li {\r\n\tlist-style: none;\r\n\tmargin:0;\r\n\tpadding: 0;\r\n}\r\n.patt-circ {\r\n\tborder:3px solid #CCC;\r\n\tbackground: #FFFFFF;\r\n\tposition:relative;\r\n\tfloat: left;\r\n\tbox-sizing: border-box;\r\n\t-moz-box-sizing: border-box;\r\n}\r\n.patt-circ.hovered {\r\n\t/*border:3px solid #009900;*/\r\n\tborder:1px solid #9a5c01;\r\n\tbackground: #FF9800;\r\n}\r\n.patt-error .patt-circ.hovered {\r\n\tborder:3px solid #BA1B26;\r\n}\r\n.patt-hidden .patt-circ.hovered {\r\n\tborder:0;\r\n}\r\n.patt-dots {\r\n\twidth: 5px;\r\n\theight: 5px;\r\n\tborder-radius:5px;\r\n\tposition:absolute;\r\n\ttop:50%;\r\n\tleft:50%;\r\n\tmargin-top:-2.5px;\r\n\tmargin-left:-2.5px;\r\n}\r\n.patt-lines {\r\n\tborder-radius:5px;\r\n\theight:5px;\r\n\tbackground:red;\r\n\r\n\tposition:absolute;\r\n\ttransform-origin:2.5px 2.5px;\r\n\t-ms-transform-origin:2.5px 2.5px; /* IE 9 */\r\n\t-webkit-transform-origin:2.5px 2.5px;\r\n}\r\n.patt-hidden .patt-lines {\r\n\tdisplay:none;\r\n}\r\n\r\n#txt{\r\n\ttext-align:center;\r\n\tmargin-top:270px;\r\n\tmargin-bottom:30px;\r\n}\r\n\r\n#password{\r\n\tmargin: 15px; \r\n}\r\n\r\n#confirm{\r\n\tmargin: 15px; \r\n}", ""]);
 
 // exports
 
